@@ -31,6 +31,10 @@ class TestAddressBook(unittest.TestCase):
         assert 'name' in resp.data
         assert 'address' in resp.data
 
+    def test_single_address_error(self):
+        resp = self.app.get('/address/2')
+        assert 'ERROR' in resp.data
+
     def test_add_single_address(self):
         resp = self.app.post('/address?name=foo&id=5&address=rafias')
         assert 'rafias' in resp.data
