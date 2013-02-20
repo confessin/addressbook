@@ -39,5 +39,14 @@ class TestAddressBook(unittest.TestCase):
         resp = self.app.put('/address?name=foo&id=1&address=rafias')
         assert 'rafias' in resp.data
 
+    def test_edit_single_address_error(self):
+        resp = self.app.put('/address?name=foo&id=3&address=rafias')
+        assert 'ERROR' in resp.data
+
+    def test_add_single_address_error(self):
+        resp = self.app.post('/address?name=foo&id=1&address=rafias')
+        assert 'ERROR' in resp.data
+
+
 if __name__ == '__main__':
     unittest.main()

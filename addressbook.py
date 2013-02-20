@@ -153,7 +153,7 @@ class AddressData(object):
                 self._data[kwargs['id']] = {'name': kwargs['name'],
                                             'address': kwargs['address']}
                 return jsonify(self._data[kwargs['id']])
-            return 'Address with the given id already present'
+            return 'ERROR: Address with the given id already present'
 
     def update_address(self, **kwargs):
         """updates address for a given id
@@ -170,7 +170,7 @@ class AddressData(object):
                 self._data[kwargs['id']] = {'name': kwargs['name'],
                                             'address': kwargs['address']}
                 return jsonify(self._data[kwargs['id']])
-            return 'Address with the given id not present'
+            return 'ERROR: Address with the given id not present'
 
 
 
